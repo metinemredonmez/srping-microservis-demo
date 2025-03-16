@@ -1,0 +1,8 @@
+spring:
+  cloud:
+    config:
+      uri: http://service-loadbalancer-config:8888
+  config:
+    import: "configserver:"
+  application:
+    name: user-application

@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deployment-configserver
+spec:
+  selector:
+    matchLabels:
+      app: configserver
+  template:
+    metadata:
+      labels:
+        app: configserver
+    spec: 
+      containers:
+        - name: pod-configserver
+          image: muhammedali55/egitimconfigserver:v01
+          resources:
+            limits:
+              memory: "2048Mi"
+              cpu: "300m"
+          ports:
+          - containerPort: 8888
+          env:
+          - name: GIT_KEY
+            value:
